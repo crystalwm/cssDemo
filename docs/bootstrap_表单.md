@@ -394,6 +394,239 @@ margin-top: -5px;
 1：为什么不使用“fom-group”进行包裹，要使用"checkbox"或者是"radio"来进行包裹
     1.checkbox,radio使用了盒子模型进行定位。还有块状元素和最小高度的定位机制来实现。
     2.`form-group`只是实现了浮动定位和底部的外边距。
+2;主要看你是需要实现什么样的效果吧。    
+3：使用class="radio" 需要注意的是，这个没有使用清楚浮动，但是.radio input[type="radio"] 中却是使用了浮动定位的。
+   
+
+
+### 表单控件(复选框和单选按钮水平排列)
+
+1、如果checkbox需要水平排列，只需要在label标签上添加类名“checkbox-inline”
+2、如果radio需要水平排列，只需要在label标签上添加类名“radio-inline”
+如下所示：
+```
+<form role="form">
+  <div class="form-group">
+    <label class="checkbox-inline">
+      <input type="checkbox"  value="option1">游戏
+    </label>
+    <label class="checkbox-inline">
+      <input type="checkbox"  value="option2">摄影
+    </label>
+    <label class="checkbox-inline">
+    <input type="checkbox"  value="option3">旅游
+    </label>
+  </div>
+  <div class="form-group">
+    <label class="radio-inline">
+      <input type="radio"  value="option1" name="sex">男性
+    </label>
+    <label class="radio-inline">
+      <input type="radio"  value="option2" name="sex">女性
+    </label>
+    <label class="radio-inline">
+      <input type="radio"  value="option3" name="sex">中性
+    </label>
+  </div>
+</form>
+```
+运行效果如下或查看右侧结果窗口：
+![dd](./img/bootstrap_form_radiolist.jpg)
+
+实现源码请查看bootstrap.css文件第1767行～第1780行：
+```
+.radio-inline,
+.checkbox-inline {
+display: inline-block;
+padding-left: 20px;
+margin-bottom: 0;
+font-weight: normal;
+vertical-align: middle;
+cursor: pointer;
+}
+.radio-inline + .radio-inline,
+.checkbox-inline + .checkbox-inline {
+margin-top: 0;
+margin-left: 10px;
+}
+```
+
+这里的关键是display:inline-block
+
+**总结**
+1：display:block + float:left
+2:dispaly:inline-block
+3:radio标签的name属性
+
+### 表单控件(按钮)
+按钮也是表单重要控件之一,制作按钮通常使用下面代码来实现：
+
+  ?  input[type=“submit”]
+
+  ?  input[type=“button”]
+
+  ?  input[type=“reset”]
+
+  ?  <button>
+
+在Bootstrap框架中的按钮都是采用<button>来实现。
+
+有关于Bootstrap中按钮如何制作，在这里不做过多阐述，因为按钮也是Bootstrap框架中核心部分之一，后面我们专门有一节内容来介绍Bootstrap的按钮。
+
+这里先让大家看看Bootstrap的按钮长成什么样：
+![dds](./img/bootstrap_form_button.jpg)
+
+### 表单控件大小
+前面看到的表单控件都正常的大小。可以通过设置控件的height，line-height，padding和font-size等属性来实现控件的高度设置。
+不过Bootstrap框架还提供了两个不同的类名，用来控制表单控件的高度。这两个类名是：
+1、`input-sm`:让控件比正常大小更小
+2、`input-lg`:让控件比正常大小更大
+
+这两个类适用于表单中的input，textarea和select控件，具体使用如下：
+```
+<input class="form-control input-lg" type="text" placeholder="添加.input-lg，控件变大">
+<input class="form-control" type="text" placeholder="正常大小">
+<input class="form-control input-sm" type="text" placeholder="添加.input-sm，控件变小">
+``
+运行效果如下或查看右侧结果窗口：
+![ddd](./img/bootstrap_form_size_1.jpg)
+
+源码请查阅bootstrap.css文件第1795~第1824行：
+```
+.input-sm {
+height: 30px;
+padding: 5px 10px;
+font-size: 12px;
+line-height: 1.5;
+border-radius: 3px;
+}
+select.input-sm {
+height: 30px;
+line-height: 30px;
+}
+textarea.input-sm,
+select[multiple].input-sm {
+height: auto;
+}
+.input-lg {
+height: 46px;
+padding: 10px 16px;
+font-size: 18px;
+line-height: 1.33;
+border-radius: 6px;
+}
+select.input-lg {
+height: 46px;
+line-height: 46px;
+}
+textarea.input-lg,
+select[multiple].input-lg {
+height: auto;
+}
+```
+
+从上面的源码中不难发现，不管是“input-sm”还是“input-lg”仅对控件高度做了处理。
+但往往很多时候，我们需要控件宽度也要做一定的变化处理。这个时候就要借住Bootstrap框架的网格系统。
+上面的控件的宽度全是100%
+所以你要控制表单宽度，可以像下面这样使用：
+```
+<form role="form" class="form-horizontal">
+  <div class="form-group">
+  <div class="col-xs-4">
+    <input class="form-control input-lg" type="text" placeholder=".col-xs-4">
+  </div>
+  <div class="col-xs-4">
+    <input class="form-control input-lg" type="text" placeholder=".col-xs-4">
+  </div>
+  <div class="col-xs-4">
+    <input class="form-control input-lg" type="text" placeholder=".col-xs-4">
+  </div>
+  </div>
+    …
+</form>
+```
+注：网格布局在后面章节中会进行详细讲解。
+
+运行效果如下或查看右侧结果窗口：
+![ss](./img/bootstrap_form_size_2.jpg)
+
+
+前面介绍水平表单时说过，如果表单使用了类名“form-horizontal”，其中“form-group”就相当于网格系统中的“row”。
+换句话说，如果没有这样做，要通过网格系统来控制表单控件宽度，就需要这样使用：
+```
+<div class="row">
+<div class="col-xs-4">
+<input class="form-control input-lg" type="text" placeholder=".col-xs-4">
+</div>
+<div class="col-xs-4">
+<input class="form-control input-lg" type="text" placeholder=".col-xs-4">
+</div>
+<div class="col-xs-4">
+<input class="form-control input-lg" type="text" placeholder=".col-xs-4">
+</div>
+</div>
+```
+
+**总结**
+1：`input-sm`
+2:`input-lg`
+3:`row`
+4:`form-horizontal`
+5:`col-xs-4`
+
+### 表单控件状态(焦点状态)
+**焦点状态**
+通过伪类“:focus”来实现。
+
+**Bootstrap框架中表单控件的焦点状态**
+删除了outline的默认样式，重新添加阴影效果。
+```
+.form-control:focus {
+border-color: #66afe9;
+outline: 0;
+  -webkit-box-shadow: inset 0 1px 1pxrgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+box-shadow: inset 0 1px 1pxrgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+}
+```
+ 从源码中我们可以看出，要让控件在焦点状态下有上面样式效果，需要给控件添加类名“form-control”：
+```
+<form role="form" class="form-horizontal">
+  <div class="form-group">
+    <div class="col-xs-6">
+      <input class="form-control input-lg" type="text" placeholder="不是焦点状态下效果">
+    </div>
+    <div class="col-xs-6">
+      <input class="form-control input-lg" type="text" placeholder="焦点点状态下效果">
+    </div>
+  </div>
+</form>
+```
+运行效果如下或查看右侧结果窗口：
+
+
+
+（鼠标单击输入框，使其获得焦点就可以看到加入蓝色边框效果）
+
+在Bootstrap框架中，file、radio和checkbox控件在焦点状态下的效果也与普通的input控件不太一样，主要是因为Bootstrap对他们做了一些特殊处理：
+/*源码查看boostrap.css文件第1676行～第1682行*/
+
+input[type="file"]:focus,
+input[type="radio"]:focus,
+input[type="checkbox"]:focus {
+outline: thin dotted;
+outline: 5px auto -webkit-focus-ring-color;
+outline-offset: -2px;
+}
+
+
+ 
+   
+    
+    
+    
+    
+    
+    
     
     
   
