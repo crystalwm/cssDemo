@@ -487,7 +487,7 @@ margin-left: 10px;
 <input class="form-control input-lg" type="text" placeholder="添加.input-lg，控件变大">
 <input class="form-control" type="text" placeholder="正常大小">
 <input class="form-control input-sm" type="text" placeholder="添加.input-sm，控件变小">
-``
+```
 运行效果如下或查看右侧结果窗口：
 ![ddd](./img/bootstrap_form_size_1.jpg)
 
@@ -609,7 +609,7 @@ box-shadow: inset 0 1px 1pxrgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
 
 在Bootstrap框架中，file、radio和checkbox控件在焦点状态下的效果也与普通的input控件不太一样，主要是因为Bootstrap对他们做了一些特殊处理：
 /*源码查看boostrap.css文件第1676行～第1682行*/
-
+```
 input[type="file"]:focus,
 input[type="radio"]:focus,
 input[type="checkbox"]:focus {
@@ -617,9 +617,188 @@ outline: thin dotted;
 outline: 5px auto -webkit-focus-ring-color;
 outline-offset: -2px;
 }
+```
+**总结**
+在bootstrap已经自动的为`file`,`radio`,`checkbox`控件添加上了在获取焦点的时候应该具有的效果。
+在页面中也无须进行特别的设置。
+学习这一小节主要是了解伪类`:focus`
+
+### 表单控件状态(禁用状态)
+Bootstrap框架的表单控件的禁用状态和普通的表单禁用状态实现方法是一样的，在相应的表单控件上添加属性“disabled”。
+**和其他表单的禁用状态不同的是**
+Bootstrap框架做了一些样式风格的处理：
+/*源码请查看bootstrap.css文件第1723行～第1729行*/
+```
+.form-control[disabled],
+.form-control[readonly],
+fieldset[disabled] .form-control {
+cursor: not-allowed;
+background-color: #eee;
+opacity: 1;
+}
+```
+1:鼠标放在控件上的样式--禁止
+2：背景颜色--灰色
+2：完全透明
+
+**使用方法为：**
+只需要在需要禁用的表单控件上加上“disabled”即可：
+```
+<input class="form-control" type="text" placeholder="表单已禁用，不能输入" disabled>
+```
+
+在使用了“form-control”的表单控件中，样式设置了禁用表单背景色为灰色，而且手型变成了不准输入的形状。
+如果控件中不使用类名“form-control”，禁用的控件只会有一个不准输入的手型出来。
+/*源码请查阅bootstrap.css文件第1781行～第1794行*/
+```
+input[type="radio"][disabled],
+input[type="checkbox"][disabled],
+.radio[disabled],
+.radio-inline[disabled],
+.checkbox[disabled],
+.checkbox-inline[disabled],
+fieldset[disabled] input[type="radio"],
+fieldset[disabled] input[type="checkbox"],
+fieldset[disabled] .radio,
+fieldset[disabled] .radio-inline,
+fieldset[disabled] .checkbox,
+fieldset[disabled] .checkbox-inline {
+cursor: not-allowed;
+}
+```
+在Bootstrap框架中，如果`fieldset`设置了`disabled`属性，整个域都将处于被禁用状态。
+```
+<form role="form">
+<fieldset disabled>
+  <div class="form-group">
+  <label for="disabledTextInput">禁用的输入框</label>
+    <input type="text" id="disabledTextInput" class="form-control" placeholder="禁止输入">
+  </div>
+  <div class="form-group">
+  <label for="disabledSelect">禁用的下拉框</label>
+    <select id="disabledSelect" class="form-control">
+  <option>不可选择</option>
+  </select>
+  </div>
+  <div class="checkbox">
+  <label>
+    <input type="checkbox">无法选择
+  </label>
+  </div>
+  <button type="submit" class="btnbtn-primary">提交</button>
+</fieldset>
+</form>
+```
+运行效果如下或查看右侧结果窗口：
+![ss](./img/bootstrap_table_disable_1.jpg)
 
 
- 
+据说对于整个禁用的域中，如果`legend`中有输入框的话，这个输入框是无法被禁用的。我们一起来验证一下：
+```
+<form role="form">
+<fieldset disabled>
+<legend><input type="text" class="form-control" placeholder="显然我颜色变灰了，但是我没被禁用，不信？单击试一下" /></legend>
+    …
+</fieldset>
+</form>
+```
+**问题**
+1：对于某个input的禁用，主要是与什么属性的控制有关？
+```
+通过input控件的disable属性
+```
+2:可以通过css来控制表单禁用与否吗?
+```
+没有找到。
+自己以前的方式，是设置控件不可编辑，以及控件是只读的。
+```
+
+**总结**
+1.对于当个输入框的禁用:`form-control样式`+`disable属性`
+2.对于整个form的禁用：`fieldset标签`+`disable属性`
+    特别要主要如果需要`fieldset标签`内部有`legent标签`的时候就不能正常的禁用了。
+    
+    
+### 表单控件状态(验证状态)
+在制作表单时，不免要做表单验证。同样也需要提供验证状态样式，在Bootstrap框架中同样提供这几种效果。
+1、.has-warning:警告状态（黄色）
+2、.has-error：错误状态（红色）
+3、.has-success：成功状态（绿色）
+使用的时候只需要在form-group容器上对应添加状态类名。
+```
+<form role="form">
+<div class="form-group has-success">
+  <label class="control-label" for="inputSuccess1">成功状态</label>
+  <input type="text" class="form-control" id="inputSuccess1" placeholder="成功状态" >
+</div>
+<div class="form-group has-warning">
+  <label class="control-label" for="inputWarning1">警告状态</label>
+  <input type="text" class="form-control" id="inputWarning1" placeholder="警告状态">
+</div>
+<div class="form-group has-error">
+  <label class="control-label" for="inputError1">错误状态</label>
+  <input type="text" class="form-control" id="inputError1" placeholder="错误状态">
+</div>
+</form>
+```
+运行效果如下或查看右侧结果窗口：
+![dd](./img/bootstrap_form_confirm_1.jpg)
+
+从效果可以看出，三种状态下效果都是一样的，只是颜色不一样而以。
+
+其他两种状态省略源码不在此展示。
+很多时候，在表单验证的时候，不同的状态会提供不同的 icon，比如成功是一个对号（√），错误是一个叉号（×）等。
+在Bootstrap框中也提供了这样的效果。如果你想让表单在对应的状态下显示 icon 出来，只需要在对应的状态下添加类名“has-feedback”。
+请注意，此类名要与“has-error”、“has-warning”和“has-success”在一起：
+```
+<form role="form">
+<div class="form-group has-success has-feedback">
+  <label class="control-label" for="inputSuccess1">成功状态</label>
+  <input type="text" class="form-control" id="inputSuccess1" placeholder="成功状态" >
+  <span class="glyphiconglyphicon-ok form-control-feedback"></span>
+</div>
+<div class="form-group has-warning has-feedback">
+  ......
+</div>
+<div class="form-group has-error has-feedback">
+  ......
+</div>
+</form>
+```
+运行效果如下或查看右侧结果窗口：
+![ddd](./img/bootstrap_form_confirm_2.jpg)
+
+
+从效果图中可以看出，图标都居右。在 Bootstrap 的小图标都是使用@font-face来制作（后面的内容中将会着重用一节内容来介绍）。
+而且必须在表单中添加了一个 span 元素：下面的例子是一个警告的例子。
+```
+<span class="glyphiconglyphicon-warning-sign form-control-feedback"></span>   
+```
+
+**主要解决的问题**
+在表单验证的不同阶段，对于表单的一些处理，
+1：从边框颜色上来看
+2：给用户反馈消息类型，并因此作出下一步的操作。
+
+### 表单提示信息
+
+![dd](./img/bootstrap_form_tooltip.jpg)
+
+`help-block`
+
+`help-inline`
+
+### 按钮
+
+![dd](./img/bootstrap_table_button.jpg)
+
+与按钮有关的class包括：
+`btn`
+`btn-default`
+`btn-primary`
+等等吧!
+
+
    
     
     
