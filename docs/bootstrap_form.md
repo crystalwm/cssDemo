@@ -798,6 +798,49 @@ cursor: not-allowed;
 `btn-primary`
 等等吧!
 
+**按钮不同属性的详细说明**
+![ss](./img/bootstrap_button_2.jpg)
+
+![ss](./img/bootstrap_button_3.jpg)
+
+**按钮的大小控制class**
+![sss](./img/bootstrap_button_4.jpg)
+
+**块状按钮**
+![ssd](./img/bootstrap_button_block.jpg)
+这个主要是通过`btn-block`属性来实现。
+
+**禁用状态有两种方式**
+1.input 控件的disabled属性
+2.使用bootstrap提供的class，disabled
+
+
+### 图像
+![dd](./img/bootstrap_img_1.jpg)
+
+1、img-responsive：响应式图片，主要针对于响应式设计
+2、img-rounded：圆角图片
+3、img-circle：圆形图片
+4、img-thumbnail：缩略图片
+
+### 图标
+![dd](./img/bootstrap_icon_1.jpg)
+
+图标会在很多的地方使用到，比如说表单验证。
+或者按钮图标等等，可能需要更多的操作。
+
+主要需要关注的属性为`glyphicon`
+
+可以在这个网站查看图标的一些详细信息
+http://getbootstrap.com/components/#glyphicons
+
+
+
+
+
+
+
+
 
    
     
