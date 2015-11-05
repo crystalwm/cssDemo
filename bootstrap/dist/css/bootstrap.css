@@ -2809,7 +2809,7 @@ select[multiple].input-lg {
   line-height: 30px;
 }
 .has-success .help-block,
-.has-success .control-label,
+.has-success .control-labelcontrol-label,
 .has-success .radio,
 .has-success .checkbox,
 .has-success .radio-inline,

@@ -1,0 +1,42 @@
+
+/* Defaults */
+* {
+    -moz-box-sizing:border-box;
+    box-sizing:border-box;
+}
+
+
+/* Site Layout */
+.grid-container [class*="grid"] {
+    float:left;
+}
+.grid-whole { width:100%; }
+.grid-three-quarter { width:75%; }
+.grid-half { width:50%; }
+.grid-two-third { width:66.67%; }
+.grid-third { width:33.33%; }
+.grid-quarter { width:25%; }
+
+
+/* clearfix */
+.cf:before,
+.cf:after {
+    content:" ";
+    display:table;
+}
+.cf:after {
+    clear:both;
+}
+
+/* Homepage Post */
+.banner-meta {
+    position:absolute;
+    bottom:0;
+    right:0;
+
+    text-align:center;
+    line-height:1;
+}
+.main-banner{
+    position: relative;
+}

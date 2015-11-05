@@ -634,3 +634,8 @@ padding: 5px;
 **总结**
 1：这个应该是必填项吧！。
 
+
+
+table参考文献：
+http://bootstrap-table.wenzhixin.net.cn/examples/
+

@@ -1,0 +1,102 @@
+div#bd {
+    width: 960px;
+    margin: 0 auto;
+    /* background: #ddd; */
+}
+
+body {
+    background: #ddd;
+}
+
+*{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+/* clear float */
+.cf:before,.cf:after{
+    display: table;
+    content: " ";
+}
+.cf:after{
+    clear: both;
+}
+
+/* module: sliders */
+div#sliders {
+    background: #fff;
+}
+
+article {
+    float: left;
+    width: 20%;
+}
+
+.inner {
+    width: 500%;
+}
+
+div#overflow {
+    overflow-x: hidden;
+}
+
+/* module: controls */
+#controls{
+    height: 50px;
+    width: 100%;
+    margin-top: -25%;
+}
+#controls label{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    opacity: 0.3;
+    cursor: pointer;
+}
+#controls label:hover{
+    opacity: 1;
+}
+
+/* module: active */
+#active{
+    width: 100%;
+    margin-top: 23%;
+    text-align: center;
+}
+#active label{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background: #bbb;
+    border-color: #777;
+}
+#active label:hover{
+    background: #ccc;
+}
+
+
+#slider1:checked ~ #active label:nth-child(1),
+#slider2:checked ~ #active label:nth-child(2),
+#slider3:checked ~ #active label:nth-child(3),
+#slider4:checked ~ #active label:nth-child(4),
+#slider5:checked ~ #active label:nth-child(5){
+    background: #333;
+}
+
+
+#slider1:checked ~ #sliders .inner{
+    margin-left: 0;
+}
+#slider2:checked ~ #sliders .inner{
+    margin-left: -100%;
+}
+#slider3:checked ~ #sliders .inner{
+    margin-left: -200%;
+}
+#slider4:checked ~ #sliders .inner{
+    margin-left: -300%;
+}
+#slider5:checked ~ #sliders .inner{
+    margin-left: -400%;
+}
