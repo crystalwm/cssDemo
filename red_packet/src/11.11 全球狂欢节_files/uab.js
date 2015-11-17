@@ -1,0 +1,1 @@
+(function (global, doc, script_tag_name) {global['__UAB_VER'] = 7;var s = doc.createElement(script_tag_name);s.async = 1;s.src = '//uaction.alicdn.com/static/7/cj.js';var m = doc.getElementsByTagName(script_tag_name)[0];m.parentNode.insertBefore(s, m);if (global.UA_Opt && !UA_Opt.reload) {UA_Opt.reload = function () {};}global.acjs = 1;})(window, document, 'script');
