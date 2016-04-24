@@ -1,0 +1,47 @@
+.box{
+    position: absolute;
+    bottom: -25px;
+    right: -25px;
+    z-index:9999;
+
+    width: 75px;
+    height: 75px;
+    border: 1px solid #000;
+
+}
+
+.site-header{
+    top:0;
+    left:0;
+    z-index:1;
+}
+
+.site-content{
+    top:50px;
+    left:50px;
+    z-index: 2;
+}
+
+.site-footer{
+    top: 100px;
+    left:100px;
+    z-index: 3;
+}
+
+.blue{
+    background-color: blue;
+}
+.green{
+    background-color: green;
+}
+.yellow{
+    background-color: yellow;
+}
+.pink{
+    background-color: pink;
+}
+.site-content,.site-header,.site-footer{
+    width: 200px;
+    height: 80px;
+    position: absolute;
+}
