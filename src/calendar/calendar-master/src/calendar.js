@@ -251,7 +251,7 @@
 				_this.settings.selected && _this.settings.selected.call(_this,_this.date, _this.calendarContainer);
 				if (_this.settings.target && $(_this.settings.target).size() && $(_this.settings.target)[0].nodeType === 1 && _this.autohide) {
 					$(_this.settings.target).val(value);
-					_this.hide();
+				//	_this.hide();
 					_this.settings.afterSelected && _this.settings.afterSelected.call(_this,$(_this.settings.target), _this.date, _this.calendarContainer);
 				}
 				return false;
