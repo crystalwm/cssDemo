@@ -313,19 +313,19 @@
 					if ($(this).hasClass('disabled') || $(this).filter('[disabled="true"]').size() > 0) {
 						return;
 					}
-					$(document).trigger('click');
+					/*$(document).trigger('click');*/
 					_this.show();
 					return false;
 				});
-				$(document).click(function() {
+/*				$(document).click(function() {
 					_this.isShow && _this.hide()
-				})
+				})*/
 			}
-			$(document).keydown(function(e) {
+/*			$(document).keydown(function(e) {
 				if (e.keyCode === 27) {
 					_this.hide();
 				}
-			});
+			});*/
 		},
 		actionFlow: function(obj, action) {
 			if (obj.siblings('.ui-calendar-flow').length) {
