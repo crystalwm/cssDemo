@@ -32,6 +32,7 @@ that not `auto`
 ##### `z-index within stacking context`
 
 ![question1](./imgs/z-index1.png)
+
 黄色盒子`z-index`属性的值很大(大于粉色盒子的`z-index`),但是不能正常显示的原因
 在与`z-index within stacking context`
 
@@ -40,10 +41,11 @@ all`z-index`values are resolved within their parent stacking context
 think of `z-index` within a stacking context as a sub-item of an ordered list
 
 `因此在哪个有问题的例子中`
-header z-index   1
-main z-index     2
-   box z-index   2.9999
-footer z-index   3
+
+1. header z-index   1
+2. main z-index     2
+3. box z-index   2.9999
+4. footer z-index   3
 
 ##### `z-index strategy`
 1. what if you want to add an element between `z-index:3` and `z-index:4`

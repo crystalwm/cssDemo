@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style type="text/css">
+    #dot{
+        background-color: red;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;  /*圆形的圈圈*/
+        position: absolute;
+        top:100px;
+        left:100px;
+        z-index: 1;
+    }
+
+    .dot-ripple{
+        position: absolute;
+        z-index: 2;
+        animation: ripple 1s ease infinite ;
+    }
+
+    @keyframes ripple{
+        0%{
+            opacity: 75;
+            width: 0;
+            height: 0;
+            top:5px;
+            left:5px;
+        }
+        100%{
+            background-color: coral;
+            opacity: 0;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            left: -10px;
+            top:-10px;
+        }
+
+    }
+</style>
+<body>
+<div id="dot">
+    <div class="dot-ripple"></div>
+</div>
+
+</body>
+</html>
