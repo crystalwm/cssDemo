@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+
+        /**
+       这里会让单元格中的文字垂直居中对齐
+        */
+        #wrapper{
+            border: 1px solid red;
+            display: table;
+        }
+        #cell{
+            display: table-cell;
+            vertical-align:middle;
+            height: 500px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="wrapper">
+    <div id="cell">
+        Everything in this table cell div is centred
+        It can dynamically change to any height based on content (try by changing your browser font size)
+        Doesn’t get cut off when there isn't enough room
+        Doesn’t work in Internet Explorer
+        Uses 2 extra divs
+    </div>
+</div>
+
+</body>
+</html>

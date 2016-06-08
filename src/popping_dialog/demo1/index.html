@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../../lib/jquery/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body><input type="button" id="btn_confirmdefault" value="confirm默认"/>
+
+<div class="ui-dialog-mask" style="display: none"></div>
+<div class="ui-dialog-confirm" style="display: none">
+    <span class="ui-dialog-close"></span>
+    <div>
+        <div class="ui-confirm-title">你确定要删除这条消息吗?</div>
+        <table class="ui-dialog-action">
+            <tbody>
+            <tr>
+                <td><button class="ui-dialog-confirm-yes" data-type="yes">确定</button></td>
+                <td><button class="ui-dialog-confirm-no" data-type="no">取消</button></td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+
+</body>
+</html>

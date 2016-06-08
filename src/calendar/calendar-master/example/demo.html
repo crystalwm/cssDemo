@@ -6,18 +6,27 @@
     <link rel="stylesheet" type="text/css" href="../src/calendar.css">
     <script src="../dist/jquery-1.9.1.min.js"></script>
     <script src="../src/calendar.js"></script>
+
     <script type="text/javascript">
+
+        var calendar2;
         $(function(){
-            var calendar2 = new Calendar();
+            calendar2 = new Calendar();
             calendar2.init({
-                target: $('#calendar'),
+                target: $('#calendar2'),
                 multiple: true,
                 toolbar: false,
-                time:false
+                time:false,
+                sdate:"2016-05-11",
+                edate:"2016-05-13"
             });
 
             calendar2.show();
         });
+
+
+
+
     </script>
 </head>
 <body>

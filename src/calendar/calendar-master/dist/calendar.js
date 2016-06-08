@@ -511,6 +511,7 @@
 				end = new Date(Date.parse(end));
 				endDate = +new Date(end.getFullYear(), end.getMonth(), end.getDate());
 			}
+			//dayNum
 			for (var i = startNum; i <= dayNum; i++) {
 				var className = cls || "";
 				var datavalue = date.getFullYear() + this.separator + this._getTowNum(date.getMonth() + 1) + this.separator;

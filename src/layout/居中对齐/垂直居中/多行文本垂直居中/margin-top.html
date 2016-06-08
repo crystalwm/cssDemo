@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        /*
+        这里主要是让一个单元格垂直居中对齐
+        1:固定高度
+        2:绝对定位
+
+        */
+        #box{
+            position: absolute;
+            height: 240px;
+            top:50%;
+            border: 1px solid red;
+            margin-top: -120px;
+
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    Works in all browsers
+    Fixed height object (can be ems)
+    Gets cut off when there isn't enough space
+    Doesn't require additional objects
+</div>
+
+</body>
+</html>

@@ -1,3 +1,13 @@
-/**
- * Created by crystal on 16/5/16.
- */
+
+
+
+$(document).ready(function(){
+
+
+   $(".button").on("click",function(){
+
+       console.log("ddd");
+   });
+
+});
+
