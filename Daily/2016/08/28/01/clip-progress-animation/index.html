@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>CSS3动画技能栏</title>
+    <style>
+        /* RESET */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* DEMO BODY */
+        body{
+            overflow-x: hidden;
+            overflow-y: scroll;
+            font-family: MuseoSans, Georgia, "Times New Roman", Times, serif;
+            font-size: 13px;
+            color: #444;
+            border-top: 3px solid #444;
+            background-color: #E4E6E5;
+            overflow-x:hidden;
+        }
+
+        section .demo {
+            width: 530px;
+            margin:15em auto;
+            overflow: hidden;
+        }
+        ul.notes { clear:both;}
+        ul.notes li {
+            float:left;
+            margin-right:3em;
+            display:inline;
+        }
+        ul.notes li:last-child {margin:0;}
+        ul.notes li span.skill {
+            display:block;
+            text-align:center;
+            padding: 10px 0;
+            text-shadow: 1px 0 0 #FFFFFF;
+        }
+        .notesite {
+            display: inline-block;
+            position:relative;
+            width:1em;
+            height:1em;
+            font-size: 5.4em;
+            cursor:default;
+        }
+        .notesite > .percent {
+            position: absolute;
+            top: 20px;
+            left: 0;
+            width:100%;
+            font-size:25px;
+            text-align:center;
+            z-index:2;
+        }
+        .notesite > .percent .dec {
+            font-size:15px;
+        }
+        .notesite > #slice {
+            position:absolute;
+            width:1em;
+            height:1em;
+            clip:rect(0px,1em,1em,0.5em);
+        }
+        .notesite > #slice.gt50 {
+            clip:rect(auto, auto, auto, auto);
+        }
+        .notesite > #slice > .pie {
+            position:absolute;
+            border: 0.1em solid #444;
+            width:0.8em;
+            height:0.8em;
+
+            -moz-border-radius:0.5em;
+            -webkit-border-radius:0.5em;
+            border-radius:0.5em;
+            -webkit-animation: craw 2s linear;
+            -webkit-animation-iteration-count: 1;
+        }
+        @-webkit-keyframes craw {
+            0% {
+                clip:rect(0em,1em,0em,0.5em);
+            }
+            50%{clip:rect(0em,1em,1em,0.5em);
+                -webkit-transform: rotate(0deg);
+                -moz-transform: rotate(0deg);
+                -ms-transform: rotate(0deg);
+                -o-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+            100%{
+                clip:rect(0em,1em,1em,0em);
+                -webkit-transform: rotate(90deg);
+                -moz-transform: rotate(90deg);
+                -ms-transform: rotate(90deg);
+                -o-transform: rotate(90deg);
+                transform: rotate(90deg);
+            }
+        }
+        li.html .notesite > #slice > .pie {
+            border-color:#DF6C4F;
+        }
+        .notesite.fill > .percent {
+            display: none;
+        }
+        li.html .notesite:before {
+            background:#DF6C4F;
+        }
+    </style>
+</head>
+<body class="home">
+<div class="wrapper">
+    <section>
+        <div class="demo">
+            <ul class="notes">
+                <li class="html"><div class="notesite" id="note_0" dir="100">
+                    <div class="percent"></div>
+                    <div id="slice" class="gt50">
+                        <!--<div class="pie"></div>-->
+                        <div class="pie fill">
+                        </div>
+                    </div>
+                </div><span class="skill">HTML</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+</div>
+</body>
+</html>
+

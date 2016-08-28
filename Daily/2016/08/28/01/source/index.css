@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+html {
+    height: 100%;
+    background: #282828;
+}
+.overwatch-container {
+    width: 232px;
+    margin: 50px auto;
+    position: relative;
+}
+.out-ring1 {
+    height: 220px;
+    width: 220px;
+    position: absolute;
+    top: 6px;
+    left: 6px;
+}
+.out-ring1::before, .out-ring1::after {
+    content: "";
+    height: 220px;
+    width: 220px;
+    border-radius: 50%;
+    position: absolute;
+    top: -6px;
+    left: -6px;
+    border: 6px solid rgba(161, 164, 176, 0.5);
+}
+.out-ring1::before {
+    clip: rect(60px, 232px, 172px, 100px);
+    transform: rotate(230deg);
+}
+.out-ring1::after {
+    clip: rect(80px, 232px, 152px, 100px);
+    transform: rotate(120deg);
+}
+.out-ring2 {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+}
+.out-ring2::before, .out-ring2::after {
+    content: "";
+    height: 220px;
+    width: 220px;
+    border-radius: 50%;
+    position: absolute;
+    top: -6px;
+    left: -6px;
+    border: 6px solid rgba(161, 164, 176, 0.5);
+}
+.out-ring2::before {
+    clip: rect(105px, 232px, 127px, 100px);
+}
+.out-ring2::after {
+    clip: rect(112px, 232px, 120px, 100px);
+}
