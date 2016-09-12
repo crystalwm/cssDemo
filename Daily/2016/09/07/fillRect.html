@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="my-canvas"></canvas>
+
+</body>
+<script type="text/javascript">
+    var mycanvas=document.getElementById('my-canvas');
+    var context=mycanvas.getContext('2d');
+
+
+/*    //绘制直线
+    context.moveTo(0,0);
+    context.lineTo(200,100);
+    context.stroke();*/
+
+
+/*    //绘制矩形
+    context.fillStyle='blue';
+    context.fillRect(0,0,200,100);*/
+
+/*    //绘制圆形
+    context.beginPath();
+    context.arc(100,75,50,0,Math.PI*2,true);
+    context.closePath();
+    context.fill();*/
+
+/*    //绘制三角形
+    context.beginPath();
+    context.moveTo(25,25);
+    context.lineTo(150,25);
+    context.lineTo(25,150);
+    context.closePath();
+    context.fill();*/
+
+    //save and restore the canvas status
+    //the first rectangle
+    context.fillStyle='red';
+    context.fillRect(0,0,100,100);
+    //save the first canvas
+    context.save();
+
+    //the second rectangele
+    context.fillStyle='blue';
+    context.fillRect(100,0,100,100);
+
+    //restore the first rectangle
+    context.restore();
+
+    //the third rectangle
+    context.fillRect(200,0,100,100);
+
+</script>
+</html>
