@@ -1,0 +1,52 @@
+<html>
+
+<head>
+
+    <style type="text/css">
+        #circle {
+            height: 200px;
+            width: 200px;
+            background-image: url(./img/scr.jpg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 200px 200px;
+            border-radius: 100px;
+        }
+        
+        #circle:hover {
+            animation: rotating 1s linear;
+            -moz-animation: rotating 1s linear;
+            -webkit-animation: rotating 1s linear;
+        }
+        
+        @-moz-keyframes rotating {
+            from {}
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        @-webkit-keyframes rotating {
+            from {}
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        @keyframes rotating {
+            from {}
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+</body>
+
+<div id="circle"></div>
+
+</html>
