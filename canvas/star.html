@@ -1,0 +1,81 @@
+<html>
+
+<head>
+    <title>star...</title>
+    <style type="text/css">
+        body {
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="box"></canvas>
+</body>
+
+<script type="text/javascript">
+    const innerWidth = window.innerWidth;
+    const innerHeight = window.innerHeight;
+    var shapes = [];
+
+    function resizeCanvas() {
+        let box = document.querySelector("#box");
+        box.height = innerHeight;
+        box.width = innerWidth;
+    }
+
+    function Shape(x, y, offsetX, offsetY, radius) {
+        this.x = x;
+        this.y = y;
+        this.offsetX = offsetX;
+        this.offsetY = offsetY;
+        this.radius = radius;
+    }
+
+    function createRandomShapes() {
+        for (var i = 0; i < 800; i++) {
+            let random1 = Math.random();
+            let random2 = Math.random();
+            let x = random1 * (innerWidth);
+            let y = random2 * (innerHeight);
+            let radius = random2 + random1;
+            let offsetX = (x - innerWidth / 2) / 50;
+            let offsetY = (y - innerWidth / 2) / 50;
+            let shape = new Shape(x, y, offsetX, offsetY, radius);
+            shapes.push(shape);
+        }
+    }
+
+
+    function showStar() {
+        let box = document.querySelector("#box");
+        let ctx = box.getContext('2d');
+        ctx.clearRect(0, 0, innerWidth, innerHeight);
+
+        for (var i = 0; i < shapes.length; i++) {
+            //offset the shape
+            shapes[i].x = shapes[i].x + shapes[i].offsetX;
+            shapes[i].y = shapes[i].y + shapes[i].offsetY;
+            if (shapes[i].x <= 0 || shapes[i].x >= innerWidth || shapes[i].y <= 0 || shapes[i].y >= innerHeight) {
+                let random1 = Math.random();
+                let random2 = Math.random();
+                shapes[i].x = random1 * (innerWidth);
+                shapes[i].y = random2 * (innerHeight);
+                shapes[i].radius = random2 + random1;
+                shapes[i].offsetX = (shapes[i].x - innerWidth / 2) / 50;
+                shapes[i].offsetY = (shapes[i].y - innerWidth / 2) / 50;
+            }
+
+            ctx.beginPath();
+            ctx.fillStyle = "#B200FF";
+            ctx.arc(shapes[i].x, shapes[i].y, shapes[i].radius, 0, Math.PI * 2, false);
+            ctx.fill();
+        }
+    }
+
+    resizeCanvas();
+    createRandomShapes();
+    setInterval(showStar, 36);
+</script>
+
+</html>
