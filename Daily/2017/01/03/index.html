@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <style type="text/css">
+        img {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="file">
+    <br>
+    <textarea></textarea>
+
+
+</body>
+
+<script type="text/javascript">
+    var file = document.querySelector('input');
+    var ta = document.querySelector('textarea');
+    var img = new Image();
+
+    file.onchange = function(e) {
+        var fr = new FileReader();
+        fr.readAsDataURL(this.files[0]);
+        fr.onload = function(e) {
+            var dataURL = e.target.result;
+            ta.value = dataURL;
+            img.src = dataURL;
+            var body = document.querySelector('body');
+            body.insertBefore(img, ta);
+        }
+
+    }
+</script>
+
+</html>
