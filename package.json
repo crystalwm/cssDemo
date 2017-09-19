@@ -1,0 +1,26 @@
+{
+  "name": "cssdemo",
+  "version": "1.0.0",
+  "description": "csssdemo",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "no"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crystalwm/cssDemo.git"
+  },
+  "keywords": [
+    "css"
+  ],
+  "author": "crystalwm",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/crystalwm/cssDemo/issues"
+  },
+  "homepage": "https://github.com/crystalwm/cssDemo#readme"
+}

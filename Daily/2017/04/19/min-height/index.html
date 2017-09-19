@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type="text/css">
+        html,
+        body {
+            height: 100%;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        
+        #containment {
+            width: 60%;
+            min-width: 780;
+            min-height: 200px;
+            margin: 0 auto 0 auto;
+            padding: 0;
+            background: #ff2;
+            display: table;
+        }
+        
+        #containment-shadow-left {
+            background: left repeat-y red;
+            padding-left: 16px;
+            height: 100px;
+            width: 100%;
+            display: table-cell;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="containment">
+        <div id="containment-shadow-left">
+            Hello World!
+        </div>
+    </div>
+</body>
+
+</html>

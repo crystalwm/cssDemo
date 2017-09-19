@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        .grid_half {
+            display: table-cell;
+            box-sizing: border-box;
+            border: 1px solid green;
+            height: 100%;
+        }
+        
+        div#box {
+            border: 1px solid red;
+            display: table;
+        }
+        
+        .cf {
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <div class="grid_half">
+            <p>1111</p>
+        </div>
+        <div class="grid_half">
+            <p>1111</p>
+            <p>1111</p>
+            <p>1111</p>
+        </div>
+        <div class="cf"></div>
+    </div>
+</body>
+
+</html>
