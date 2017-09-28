@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Examples</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="" rel="stylesheet">
+</head>
+
+<body>
+    <!-- pattern 笔刷 -->
+    <svg xmlns="http;//www.w3.org/2000/svg" width="100%" height="1000">
+        <defs>
+            <pattern id="grid" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <path stroke="#F0F0F0" fill="none" d="M 0 0,H 20,V 20"></path>
+            </pattern>
+        </defs>
+        <rect width="1200" height="1000" fill="url(#grid)"></rect>
+        
+        <text id="sintext" x='100' y='160' dy="20 20 20" style="font-size:14px;font-family:'Arial';">
+            <tspan x='100' y='160'>ABC</tspan><tspan>DE</tspan>   
+        </text>
+        <path d="M 100 0,V 300,M 0 160,H 700" transform="translate(0,0)" stroke="red"></path>
+    </svg>
+
+</body>
+
+</html>
