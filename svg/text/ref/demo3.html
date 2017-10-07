@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" encoding="UTF-8" width="1000"
+        height="1000">
+        <!-- http://www.runoob.com/svg/svg-reference.html -->
+        <defs>
+            <pattern id="grid" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <path d="M0,0H20V20" stroke="#F0F0F0" fill="none"></path>
+            </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#grid)"></rect>
+        <text id="sintext" x="100" y="100" fill="rgba(0,255,0,0.7)" stroke-width="3" style="font-size:10px">
+            ABCDEFGHIJKLMNOPQRSTWVXYZ
+        </text>
+        <path d="M100,0V200M0,100H200" stroke="red" />
+
+    </svg>
+    <script type="text/javascript">
+        /*
+    x=[20,20,20]
+    y=s*sin(w*x+t)
+    */
+        var x = [],
+            y = [],
+            n = 26,
+            s = 100,
+            w = 0.02,
+            i = 0;
+        while (i < n) {
+            x.push(10);
+            i++;
+        }
+
+        function arrange(t) {
+            var ly = 0, cy;
+            for (i = 0; i < n; i++) {
+                cy = s * Math.sin(w * i * 20 + t);
+                y.push(cy - ly);
+                ly = cy;
+
+            }
+
+        }
+        function render() {
+            sintext.setAttribute('dx', x.join(' '));
+            sintext.setAttribute('dy', y.join(' '));
+        }
+
+        arrange(0);
+        render();
+    </script>
+
+</body>
+
+</html>
